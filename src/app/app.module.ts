@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ConversionsComponent } from './conversions/conversions.component';
 import { ConversionComponent } from './conversions/conversion/conversion.component';
+import { ConversionService } from './shared/conversion.service';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,10 @@ import { ConversionComponent } from './conversions/conversion/conversion.compone
     ConversionComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ConversionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
