@@ -28,4 +28,10 @@ export class ConversionComponent implements OnInit {
     };
   }
 
+  onSubmit(form: NgForm) {
+    this.service.postConversion(form.value).subscribe(res =>{
+      this.resetForm(form);
+    })
+  }
+
 }
