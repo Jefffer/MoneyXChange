@@ -49,14 +49,12 @@ div.validation-error{
     border-width: 4px 0 4px 0;
     padding: 50px 0 20px 0;
 }
-
 .label_currency {
     margin-left: 11%;
 }
 .label_currency > input {
     background-color: #fff!important;
 }
-
 #btn_calculate {
     width: 30%;
 }
