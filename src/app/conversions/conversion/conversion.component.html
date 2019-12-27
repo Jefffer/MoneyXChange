@@ -2,13 +2,16 @@
   <div class="form-row">
     <div class="form-group col-md-4 label_currency">
       <!-- <label>USD</label> -->
-      <input name="fromValue" #fromValue="ngModel" [(ngModel)]="service.formData.fromValue" type="text"
-      pattern="[0-9]+([\.,][0-9]+)*" class="form-control text-center" placeholder="USD" required>
+      <input currencyMask  name="fromValue" #fromValue="ngModel" [(ngModel)]="service.formData.fromValue" type="text"
+      pattern="[0-9]+([\.,][0-9]+)*" [options]="{ prefix: '$ ', precision: '4', thousands: '.', decimal: ',' }"
+      class="form-control text-center" placeholder="USD" required
+      >
     </div>
     <div class="form-group col-md-4 label_currency">
       <!-- <label>EU</label> -->
-      <input name="toValue" #toValue="ngModel" [(ngModel)]="service.formData.toValue" type="text"
-        class="form-control text-center" placeholder="EU" readonly>
+      <input currencyMask name="toValue" #toValue="ngModel" [(ngModel)]="service.formData.toValue" type="text"
+        class="form-control text-center" placeholder="EU" readonly
+        [options]="{ prefix: '&#8364; ', precision: '4', thousands: '.', decimal: ',' }">
     </div>
   </div>
   <br>

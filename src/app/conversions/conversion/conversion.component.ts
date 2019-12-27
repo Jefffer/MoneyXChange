@@ -10,11 +10,11 @@ import { Conversion } from 'src/app/shared/conversion.model';
 })
 export class ConversionComponent implements OnInit {
 
-  constructor(private service : ConversionService) { }
+  constructor(private service: ConversionService) { }
 
   // toValue:number = null;
-  formValues:any;
-  
+  formValues: any;
+
   ngOnInit() {
     this.resetForm();
   }
