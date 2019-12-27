@@ -7,13 +7,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ConversionService {
 
-  formData : Conversion;
+  formData: Conversion;
   readonly rootUrl = 'http://localhost:56409/api';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  postConversion(formData : Conversion){
-    return this.http.post(this.rootUrl + '/Conversions', formData);
+  postConversion(formData: Conversion){
+    var a = this.http.post(this.rootUrl + '/Conversions', formData);
+    
+    return a;
   }
 
 }
