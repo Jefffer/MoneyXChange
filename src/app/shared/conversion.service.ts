@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class ConversionService {
 
   formData: Conversion;
-  readonly rootUrl = 'http://localhost:56409/api';
+  readonly rootUrl = 'http://localhost:56409/api'; // API connection
 
   constructor(private http: HttpClient) { }
 
