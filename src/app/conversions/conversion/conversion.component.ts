@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConversionService } from 'src/app/shared/conversion.service';
 import { NgForm } from '@angular/forms';
 import { Conversion } from 'src/app/shared/conversion.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-conversion',
@@ -10,7 +11,8 @@ import { Conversion } from 'src/app/shared/conversion.model';
 })
 export class ConversionComponent implements OnInit {
 
-  constructor(private service: ConversionService) { }
+  constructor(private service: ConversionService,
+    private toastr: ToastrService) { }
 
   // toValue:number = null;
   formValues: any;
@@ -24,6 +26,9 @@ export class ConversionComponent implements OnInit {
       console.log(2);
       console.log(this.formValues);
       console.log(this.formValues.toValue);
+      // if (this.formValues.toValue == null){
+      //   this.toastr.error('The value exceeds the allowed range.', 'MoneyXchangE');
+      // }
       this.service.formData.toValue = this.formValues.toValue;
     } else {
       console.log(3);
@@ -39,8 +44,13 @@ export class ConversionComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.service.postConversion(form.value).toPromise().then(res => {
-      // console.log(res);
       this.formValues = res;
+      if (this.formValues == null) {
+        this.toastr.error('The value exceeds the allowed range.', 'MoneyXchangE');
+      }
+      else {
+        this.toastr.success('Converted successfully. Also saved in Database.', 'MoneyXchangE');
+      }
       // console.log(res.value.toValue);
       // this.service.formData = form.value;
       this.resetForm(form);
