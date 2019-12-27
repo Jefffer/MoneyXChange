@@ -25,9 +25,7 @@ export class ConversionComponent implements OnInit {
       console.log(this.formValues);
       console.log(this.formValues.toValue);
       this.service.formData.toValue = this.formValues.toValue;
-    } 
-    else 
-    {
+    } else {
       console.log(3);
       this.service.formData = {
         fromConversion: null,
