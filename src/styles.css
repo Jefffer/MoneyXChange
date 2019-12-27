@@ -61,6 +61,7 @@ div.validation-error{
 }
 #btn_calculate {
     width: 30%;
+    letter-spacing: 2px;
 }
 #myFooter {
     letter-spacing: 1px;

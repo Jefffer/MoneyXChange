@@ -26,9 +26,7 @@ export class ConversionComponent implements OnInit {
       console.log(2);
       console.log(this.formValues);
       console.log(this.formValues.toValue);
-      // if (this.formValues.toValue == null){
-      //   this.toastr.error('The value exceeds the allowed range.', 'MoneyXchangE');
-      // }
+      // Assign toValue to input
       this.service.formData.toValue = this.formValues.toValue;
     } else {
       console.log(3);
@@ -43,6 +41,7 @@ export class ConversionComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    // Saves conversion in Database
     this.service.postConversion(form.value).toPromise().then(res => {
       this.formValues = res;
       if (this.formValues == null) {
